@@ -49,6 +49,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         NULL
     );
 
+    if (!hwnd) return 1;
+
 
     // показываем окно
     ShowWindow(hwnd, nCmdShow);
@@ -63,7 +65,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     initGame();
 
-    while (1)
+    while (TRUE)
     {
         // проверка сообщения
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
@@ -104,7 +106,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     DestroyWindow(hwnd);
 
 
-    return msg.wParam;
+    return 0;
 }
 
 
